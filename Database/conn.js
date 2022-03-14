@@ -3,16 +3,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const db_connection_string = process.env.DB_CONNECTION_STRING;
-console.log(db_connection_string)
 
-const db = mongoose.connection;
+const db = mongoose.connect(db_connection_string)
 
-db.on('open', () => {
-    console.log('Successful Connection!')
-})
-
-db.on('error', (error) => {
-    console.log(error);
-})
-
-module.exports = {mongoose}
+module.exports = {db}
