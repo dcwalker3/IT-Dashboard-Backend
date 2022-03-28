@@ -1,7 +1,9 @@
 POST http://localhost:3000/user/login
 Content-Type: application/json
+data: {"username":"admin","password":"admin"}
 
-{
-  "email": "dwalker29@my.bridgevalley.edu",
-  "password": "Casci2318!"
-}
+###
+GET http://localhost:4000
+
+###
+GET https://www.github.com
