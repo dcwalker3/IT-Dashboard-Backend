@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.json());
 
 // Have our server use mongo sanitize.
-app.use(mongoSanitize());
+app.use(mongoSanitize);
 
 // Add CORS middleware to our server.
 app.use(cors({
@@ -39,10 +39,6 @@ const Tokens = require('./AuthModels/Token.model');
 app.use('/user', Users);
 app.use('/token', Tokens);
 
-
-app.get('/', (req, res) => {
-    res.send("Hello World");
-})
 // Have our  server start listening.
 app.listen(port, () => {
     console.log(`Authentication Server Listening on port ${port}`);
