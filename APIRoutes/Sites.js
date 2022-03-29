@@ -3,6 +3,18 @@ const router = express.Router();
 
 const Site = require('../APIModels/Sites.model.js');
 
+router.delete('/delete/:url', (req, res) => {
+    Site.findOneAndRemove({url: req.params.url}, (err, site) => {
+        if (err) return res.status(500).send(err);
+        const response = {
+            message: "Site successfully deleted",
+            id: site._id,
+            url: site.url
+        };
+        return res.status(200).send(response);
+    });
+});
+
 router.post('/add', (req, res) => {
     const site = new Site({
         url: req.body.url,

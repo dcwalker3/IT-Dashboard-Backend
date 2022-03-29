@@ -52,7 +52,7 @@ let ping = function () {
 // This is so we don't have to ping the sites every time we want to check their status.
 // as well as avoid overloading the server.
 let pingSites =  function () {
-    setInterval( ping, 300000);
+    setInterval( ping, 1000*15);
 }
 
 // Exports
